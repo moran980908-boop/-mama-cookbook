@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#f8a5c2">
+  <title>👶 孕味厨房 - 孕妇专属菜谱</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/knowledge.css">
+</head>
+<body>
+
+  <!-- ==================== 顶部导航 ==================== -->
+  <header class="app-header">
+    <div class="header-top">
+      <div class="app-logo">
+        <span class="heart">❤️</span> 孕味厨房
+      </div>
+      <div class="app-subtitle">孕妇专属 · 营养菜谱</div>
+    </div>
+
+    <!-- 分类按钮 -->
+    <nav class="category-nav">
+      <button class="cat-btn active" data-category="all" onclick="switchCategory('all')">
+        <span class="cat-icon">🏠</span> 全部
+      </button>
+      <button class="cat-btn" data-category="meat" onclick="switchCategory('meat')">
+        <span class="cat-icon">🥩</span> 荤菜
+      </button>
+      <button class="cat-btn" data-category="vegetable" onclick="switchCategory('vegetable')">
+        <span class="cat-icon">🥬</span> 素菜
+      </button>
+      <button class="cat-btn" data-category="soup" onclick="switchCategory('soup')">
+        <span class="cat-icon">🍲</span> 汤类
+      </button>
+    </nav>
+  </header>
+
+  <!-- ==================== 搜索栏 ==================== -->
+  <div class="search-bar">
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="🔍 搜索菜谱（如：鸡、牛肉、豆腐...）"
+      autocomplete="off"
+    >
+  </div>
+
+  <!-- ==================== 孕期知识面板（可折叠） ==================== -->
+  <div class="knowledge-panel" id="knowledgePanel">
+    <div class="knowledge-header" onclick="toggleKnowledge()">
+      <span>📚 孕期营养知识大全</span>
+      <span class="toggle-icon" id="toggleIcon">▼</span>
+    </div>
+    <div class="knowledge-body" id="knowledgeBody">
+
+      <!-- 三大阶段营养 -->
+      <div class="k-section">
+        <h3>🌸 孕期三阶段关键营养</h3>
+        <div class="stage-grid">
+          <div class="stage-card stage-early">
+            <div class="stage-badge">孕早期 (1-3月)</div>
+            <div class="stage-title">🤰 第1-12周</div>
+            <ul>
+              <li>🌟 <strong>叶酸</strong> — 预防神经管畸形（每天400-800μg）</li>
+              <li>🌟 <strong>维生素B6</strong> — 缓解孕吐</li>
+              <li>🌟 <strong>铁</strong> — 预防缺铁性贫血</li>
+              <li>🌟 <strong>维生素C</strong> — 增强免疫力，促进铁吸收</li>
+            </ul>
+            <p class="stage-food">✅ 推荐：菠菜、西兰花、芦笋、瘦肉、鸡蛋、橙子</p>
+          </div>
+          <div class="stage-card stage-mid">
+            <div class="stage-badge">孕中期 (4-6月)</div>
+            <div class="stage-title">🤰 第13-27周</div>
+            <ul>
+              <li>🌟 <strong>钙</strong> — 胎儿骨骼发育（每天1000mg）</li>
+              <li>🌟 <strong>DHA</strong> — 胎儿大脑和视网膜发育</li>
+              <li>🌟 <strong>蛋白质</strong> — 胎儿器官发育（每天增加15g）</li>
+              <li>🌟 <strong>铁</strong> — 血容量增加，需求大增</li>
+              <li>🌟 <strong>锌</strong> — 促进胎儿生长</li>
+            </ul>
+            <p class="stage-food">✅ 推荐：鱼虾、豆腐、牛奶、坚果、瘦肉、蛋黄</p>
+          </div>
+          <div class="stage-card stage-late">
+            <div class="stage-badge">孕晚期 (7-9月)</div>
+            <div class="stage-title">🤰 第28-40周</div>
+            <ul>
+              <li>🌟 <strong>膳食纤维</strong> — 缓解便秘</li>
+              <li>🌟 <strong>钙</strong> — 胎儿骨骼钙化高峰期</li>
+              <li>🌟 <strong>铁</strong> — 预防贫血，储备分娩用血</li>
+              <li>🌟 <strong>维生素K</strong> — 预防产后出血</li>
+              <li>🌟 <strong>优质碳水</strong> — 储备分娩能量</li>
+            </ul>
+            <p class="stage-food">✅ 推荐：粗粮、蔬菜水果、豆制品、鱼肉、瘦肉</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 禁忌食材 -->
+      <div class="k-section">
+        <h3>🚫 孕期禁忌食材 & 香料（详细清单）</h3>
+        <div class="forbidden-grid">
+          <div class="forbidden-cat">
+            <h4>⚠️ 绝对不能吃</h4>
+            <ul>
+              <li><strong>酒精</strong> — 任何含酒精的饮品、食物（米酒、酒酿圆子、料酒烹饪的酒味未挥发尽也不推荐）</li>
+              <li><strong>生肉/生鱼</strong> — 刺身、生鱼片、生牛肉、未全熟的牛排</li>
+              <li><strong>生鸡蛋</strong> — 溏心蛋、生蛋蘸料、未全熟的蛋制品</li>
+              <li><strong>未消毒乳制品</strong> — 未经巴氏消毒的牛奶、羊奶</li>
+              <li><strong>汞含量高的鱼类</strong> — 鲨鱼、剑鱼、金枪鱼（大目）、方头鱼</li>
+              <li><strong>生豆芽</strong> — 绿豆芽、黄豆芽等生芽菜（细菌风险）</li>
+            </ul>
+          </div>
+          <div class="forbidden-cat">
+            <h4>⚠️ 尽量不吃的食材</h4>
+            <ul>
+              <li><strong>薏米（薏苡仁）</strong> — 兴奋子宫平滑肌，有流产风险</li>
+              <li><strong>山楂</strong> — 促进子宫收缩，孕早期尤其避免</li>
+              <li><strong>甲鱼</strong> — 性寒，有活血作用，可能导致流产</li>
+              <li><strong>螃蟹</strong> — 性寒凉，尤其是蟹爪，有堕胎作用</li>
+              <li><strong>马齿苋</strong> — 对子宫有兴奋作用</li>
+              <li><strong>芦荟</strong> — 内服可引起盆腔充血，导致出血</li>
+              <li><strong>咖啡因</strong> — 每天不超过200mg（约1-2杯咖啡）</li>
+              <li><strong>浓茶</strong> — 茶碱可能影响胎儿铁吸收</li>
+            </ul>
+          </div>
+          <div class="forbidden-cat">
+            <h4>🧂 限制/避免的调料</h4>
+            <ul>
+              <li><strong>味精/鸡精</strong> — 谷氨酸钠可能影响胎儿锌吸收</li>
+              <li><strong>料酒</strong> — 含酒精，可用葱姜蒜去腥替代</li>
+              <li><strong>辣椒酱/干辣椒</strong> — 刺激肠胃，可能引起胎动不安</li>
+              <li><strong>花椒/麻椒</strong> — 辛温燥热，少量可以但少用</li>
+              <li><strong>八角/桂皮</strong> — 性热，偶尔调味可以，不宜大量</li>
+              <li><strong>芥末/辣根</strong> — 刺激性强，可能引发宫缩</li>
+              <li><strong>肉桂粉</strong> — 大量使用可能刺激子宫</li>
+              <li><strong>藏红花</strong> — 强烈活血，绝对禁止</li>
+            </ul>
+            <div class="k-tip">
+              ✅ <strong>推荐代替调料：</strong>葱、姜、蒜、生抽、醋、番茄酱、蚝油、盐、白糖（少量）、香油、芝麻酱
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 营养速查表 -->
+      <div class="k-section">
+        <h3>📊 孕期营养素速查表</h3>
+        <div class="nutrient-table">
+          <table>
+            <thead>
+              <tr><th>营养素</th><th>作用</th><th>推荐食物来源</th><th>日需量</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>叶酸</td><td>预防神经管畸形</td><td>菠菜、西兰花、芦笋、动物肝脏</td><td>400-800μg</td></tr>
+              <tr><td>钙</td><td>骨骼牙齿发育</td><td>牛奶、豆腐、虾皮、芝麻酱、小鱼干</td><td>1000mg</td></tr>
+              <tr><td>铁</td><td>预防贫血</td><td>瘦肉、猪肝、木耳、菠菜、蛋黄</td><td>27mg</td></tr>
+              <tr><td>DHA</td><td>大脑视网膜发育</td><td>鲈鱼、三文鱼、虾、核桃、亚麻籽</td><td>200-300mg</td></tr>
+              <tr><td>蛋白质</td><td>胎儿组织发育</td><td>鸡蛋、瘦肉、鱼、豆腐、牛奶</td><td>70-85g</td></tr>
+              <tr><td>维生素C</td><td>增强免疫、促进铁吸收</td><td>番茄、橙子、彩椒、西兰花、猕猴桃</td><td>85mg</td></tr>
+              <tr><td>锌</td><td>促进生长和免疫力</td><td>瘦肉、蛋黄、南瓜子、牡蛎</td><td>11-12mg</td></tr>
+              <tr><td>膳食纤维</td><td>缓解便秘</td><td>粗粮、蔬菜、水果、木耳、菌菇</td><td>25-30g</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 主内容 ==================== -->
+  <main class="main-content" id="mainContent">
+    <!-- 内容由 JavaScript 动态渲染 -->
+  </main>
+
+  <!-- ==================== 详情页 ==================== -->
+  <div class="detail-page" id="detailPage"></div>
+
+  <!-- ==================== JavaScript ==================== -->
+  <script src="js/recipes.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

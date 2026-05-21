@@ -1,0 +1,217 @@
+/* ==================== 孕期知识面板 ==================== */
+.knowledge-panel {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.knowledge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pink-dark);
+  cursor: pointer;
+  user-select: none;
+  background: linear-gradient(135deg, #fff5f7, #f8f0ff);
+  transition: var(--transition);
+}
+
+.knowledge-header:active {
+  background: linear-gradient(135deg, #fce4ec, #e8e0f7);
+}
+
+.toggle-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.knowledge-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.knowledge-body.open {
+  max-height: 5000px;
+}
+
+.knowledge-body .k-section {
+  padding: 12px 16px;
+  border-top: 1px solid #f5f5f5;
+}
+
+.knowledge-body .k-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==================== 三阶段卡片 ==================== */
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.stage-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-top: 4px solid;
+}
+
+.stage-early { border-top-color: #81ecec; }
+.stage-mid { border-top-color: #a29bfe; }
+.stage-late { border-top-color: #fd79a8; }
+
+.stage-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.stage-early .stage-badge { background: #00b894; }
+.stage-mid .stage-badge { background: #6c5ce7; }
+.stage-late .stage-badge { background: #e84393; }
+
+.stage-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.stage-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stage-card ul li {
+  font-size: 12.5px;
+  line-height: 1.6;
+  padding: 2px 0;
+  color: #555;
+}
+
+.stage-food {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 6px 10px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+/* ==================== 禁忌食材 ==================== */
+.forbidden-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.forbidden-cat {
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.forbidden-cat h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #e74c3c;
+}
+
+.forbidden-cat ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.forbidden-cat ul li {
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 3px 0;
+  border-bottom: 1px dashed #f0f0f0;
+  color: #555;
+}
+
+.forbidden-cat ul li:last-child {
+  border-bottom: none;
+}
+
+.k-tip {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #2e7d32;
+}
+
+/* ==================== 营养素速查表 ==================== */
+.nutrient-table {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nutrient-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  min-width: 500px;
+}
+
+.nutrient-table thead th {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: #fff;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nutrient-table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+.nutrient-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.nutrient-table tbody tr:hover {
+  background: var(--pink-light);
+}
+
+/* ==================== 响应式适配 ==================== */
+@media (max-width: 500px) {
+  .stage-grid { grid-template-columns: 1fr; }
+  .forbidden-grid { grid-template-columns: 1fr; }
+  .knowledge-body .k-section { padding: 10px 12px; }
+  .stage-card { padding: 12px; }
+  .nutrient-table table { font-size: 11px; }
+}
